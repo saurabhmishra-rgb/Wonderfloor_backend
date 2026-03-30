@@ -19,7 +19,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://wonderfloor1.onrender.com/"
+        "https://wonderfloor1.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -203,4 +203,4 @@ if __name__ == "__main__":
     import uvicorn
 
     print(f"🚀 Starting on http://127.0.0.1:{PORT} | Model: {MODEL}")
-    uvicorn.run("engine:app", host="127.0.0.1", port=PORT, reload=True)
+  uvicorn.run("engine:app", host="0.0.0.0", port=PORT, reload=True)
