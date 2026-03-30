@@ -198,9 +198,8 @@ async def proxy_tile(url: str):
             content={"success": False, "error": str(e)},
         )
 
-
 if __name__ == "__main__":
     import uvicorn
 
     print(f"🚀 Starting on http://127.0.0.1:{PORT} | Model: {MODEL}")
-  uvicorn.run("engine:app", host="0.0.0.0", port=PORT, reload=True)
+    uvicorn.run("engine:app", host="0.0.0.0", port=PORT, reload=True)  # ✅ correct indent
