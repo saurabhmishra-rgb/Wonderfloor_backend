@@ -15,10 +15,16 @@ load_dotenv()
 
 app = FastAPI()
 
-allow_origins=[
-        "http://localhost:5173", # This keeps your local computer testing working
-        "https://wonderfloor.onrender.com" # <--- REPLACE THIS WITH YOUR ACTUAL FRONTEND URL
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://wonderfloor.onrender.com"
     ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 PORT = int(os.getenv("PORT", "8000"))
 MODEL = os.getenv("OPENAI_IMAGE_MODEL", "gpt-image-1")
